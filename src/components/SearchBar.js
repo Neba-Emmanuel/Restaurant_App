@@ -1,22 +1,40 @@
 import React from "react";
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, TextInput} from 'react-native';
 import {Feather, EvilIcons} from '@expo/vector-icons';
 
-const SearchBar = () => {
+const SearchBar = ({term, onTermChange, onTermSubmit}) => {
     return(
-        <View style={styles.background}>
-            <EvilIcons name="search" size={24} color="black" />
-            <Text>SearchBar</Text>
+        <View style={styles.backgroundStyle}>
+            <EvilIcons name="search" color="black" style={styles.iconStyle}/>
+            <TextInput 
+                autoCorrect={false}
+                placeholder="Search" 
+                style={styles.inputStyle}
+                value={term}
+                onChangeText={(newTerm) => onTermChange(newTerm)}
+                onEndEditing={onTermSubmit}
+            />
         </View>
     );
 }
 
 const styles = StyleSheet.create({
-    background:{
-        backgroundColor: '#FOEEEE',
+    backgroundStyle:{
+        marginTop: 10,
+        backgroundColor: '#C0C0C0',
         height: 50,
         borderRadius: 7,
-        marginHorizontal: 20,
+        marginHorizontal: 15,
+        flexDirection: 'row',
+    },
+    inputStyle:{
+        flex: 1,
+        fontSize: 18,
+    },
+    iconStyle:{
+        fontSize: 35,
+        alignSelf: 'center',
+        marginHorizontal: 15,
     }
 });
 
