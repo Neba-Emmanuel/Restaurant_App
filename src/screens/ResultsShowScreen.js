@@ -1,6 +1,6 @@
 import React from "react";
 import {View, Text, StyleSheet} from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+// import { useNavigation } from '@react-navigation/native';
 
 const ResultsShowScreen = () => {
     return (
@@ -14,4 +14,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default useNavigation(ResultsShowScreen);
+export default ResultsShowScreen;
